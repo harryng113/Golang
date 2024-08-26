@@ -30,11 +30,15 @@ func bai3(s []int) (int, int, int, float64, []int) {
 	return mn, mx, sum, tbc, s
 }
 func bai4(s []int, sum int) (int, int) {
+	var m map[int]int
+	m = make(map[int]int)
 	for i := 0; i < len(s); i++ {
-		for j := i + 1; j < len(s); j++ {
-			if s[i]+s[j] == sum {
-				return i, j
-			}
+		m[s[i]] = i
+	}
+	for i := 0; i < len(s); i++ {
+		elem, ok := m[sum-s[i]]
+		if ok == true && elem != i {
+			return i, elem
 		}
 	}
 	return -1, -1
@@ -44,5 +48,5 @@ func main() {
 	fmt.Println(a, b)
 	fmt.Println(bai2("hellos"))
 	fmt.Println(bai3([]int{5, 4, 3, 2, 1}))
-	fmt.Println(bai4([]int{2, 6, 7, 4}, 9))
+	fmt.Println(bai4([]int{4, 1, 2, 6}, 8))
 }
