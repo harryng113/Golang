@@ -56,23 +56,32 @@ func bai24() []Person {
 	}
 	defer f.Close()
 	scanner := bufio.NewScanner(f)
-	scanner.Split(bufio.ScanWords)
-	cur := 0
+	scanner.Split(bufio.ScanLines)
+
 	var p Person
+	p = Person{"", 0, ""}
 	for scanner.Scan() {
 		s := scanner.Text()
-		if cur == 0 {
-			p.Name = strings.ToUpper(s)
-		} else if cur == 2 {
-			p.Job = strings.ToLower(s)
-		} else {
-			p.YOB, _ = strconv.Atoi(s)
+		cur := 0
+		tmp := ""
+		for i := 0; i < len(s); i++ {
+			ch := string(s[i])
+			if ch == "|" {
+				tmp = strings.TrimSpace(tmp)
+				cur = (cur + 1) % 3
+				if cur == 1 {
+					p.Name = strings.ToUpper(tmp)
+				} else {
+					p.YOB, _ = strconv.Atoi(tmp)
+				}
+				tmp = ""
+			} else {
+				tmp = tmp + ch
+			}
 		}
-
-		if cur == 2 {
-			sli = append(sli, p)
-		}
-		cur = (cur + 1) % 3
+		tmp = strings.TrimSpace(tmp)
+		p.Job = strings.ToLower(tmp)
+		sli = append(sli, p)
 
 	}
 	return sli

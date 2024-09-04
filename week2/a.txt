@@ -1,3 +1,3 @@
-Hieu 22 Student
-Hung 30 Programmer
-Huy 50 Manager
+Dinh Hieu | 22 | Student
+Dang Hung | 30 | Software Engineer
+Gia Huy | 50 | Manager
