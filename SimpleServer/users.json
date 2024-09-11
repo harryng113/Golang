@@ -1,0 +1,22 @@
+[
+  {
+    "username": "wow",
+    "password": "haha",
+    "profile_pic": "uploads/default.jpg"
+  },
+  {
+    "username": "newbie",
+    "password": "what",
+    "profile_pic": "uploads/trees.jpg"
+  },
+  {
+    "username": "Harry",
+    "password": "123456",
+    "profile_pic": "uploads/default.jpg"
+  },
+  {
+    "username": "AHSIDOASD",
+    "password": "123457",
+    "profile_pic": "uploads/default.jpg"
+  }
+]
